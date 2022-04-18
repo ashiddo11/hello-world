@@ -1,0 +1,19 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: traefik-internal
+  name: hello-world 
+  namespace: default
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - kind: Rule
+    match: Host(`helloworld.medable.tech`)
+    services:
+    - name: hello-world-helloworld-chart 
+      namespace: argocd
+      port: 80
+  tls:
+    secretName: medable-tech
