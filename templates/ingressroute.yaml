@@ -10,7 +10,7 @@ spec:
   - websecure
   routes:
   - kind: Rule
-    match: Host(`helloworld.medable.tech`)
+    match: Host(`hello-world.medable.tech`)
     services:
     - name: hello-world-helloworld-chart 
       namespace: argocd
